@@ -1,11 +1,12 @@
-var http = require('http');
-var dt = require('./firstmodule');
-var url = require('url');
-var fs = require('fs');
+const http = require('http');
+const dt = require('./firstmodule');
+const url = require('url');
+const fs = require('fs');
+const myanimelists = require('myanimelists');
 
 http.createServer(function (request, response){
 
-    var route = url.parse(request.url, true).pathname;
+    const route = url.parse(request.url, true).pathname;
     switch ( route  ){
 
         case "/home": {
@@ -79,6 +80,22 @@ http.createServer(function (request, response){
             });
             break;
         }
+        case "/animes" : {
+            response.writeHead(200, {'Content-Type': 'text/html'});
+            var promiseAnime = myanimelists.getInfoFromName('Golden Wind', 'anime');
+            promiseAnime.then(function(result){
+                var keys = Object.keys(result);
+                console.log(keys);
+                response.write(keys.join() + "</br>");
+                response.write(result.title + "</br>");
+                response.write(result.synopsis + "</br>");
+                var imgLink = result.picture;
+                response.write("<img src=\"" + imgLink + "\">");
+                response.write(JSON.stringify(result));
+                response.end();
+            }).catch(error => console.log(error));
+            break;
+        }
         default :{
             response.writeHead( 404, {'Content-Type': 'text/html'});
             response.write("<!DOCTYPE HTML>" +
@@ -97,10 +114,11 @@ http.createServer(function (request, response){
     }
 }).listen(8888);
 
+/*
 function readingAFile(filePath, callback) {
     var str = '';
     fs.readFile(filePath, 'utf8', function(err, data){
         if(err) throw err;
         callback(data);
     });
-}
+}*/
