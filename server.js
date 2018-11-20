@@ -159,6 +159,6 @@ server.get('/exit', function(req, res, next) {
     return process.kill(process.pid);
 });
 
-server.listen(8888, function() {
+server.listen(process.env.PORT || 8888, function() {
     console.log('%s listening at %s', server.name, server.url);
 });
