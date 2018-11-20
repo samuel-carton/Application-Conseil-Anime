@@ -144,7 +144,6 @@ server.get('/anime/byTitle/:title', function( req, res, next) {
 server.get('/', function(req, res, err) {
     res.writeHead(200, {'Content-Type': 'text/html'});
     console.log("We got a connection !")
-    res.write(JSON.stringify(server.address()));
     res.write("Hi");
     res.end();
 });
@@ -155,8 +154,8 @@ server.get('/auth', function(req, res, next) {
     res.end();
 });
 
-server.get('/exit', function(req, res, next) {
-    return process.kill(process.pid);
+server.get('/toAuth', function(req, res, next) {
+
 });
 
 server.listen(process.env.PORT || 8888, function() {
