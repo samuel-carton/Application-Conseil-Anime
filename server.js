@@ -1,7 +1,6 @@
 const http = require('http');
 const dt = require('./firstmodule');
 const url = require('url');
-const fs = require('fs');
 const myanimelists = require('myanimelists');
 const restify = require('restify');
 
@@ -133,23 +132,32 @@ function readingAFile(filePath, callback) {
 const server = restify.createServer();
 
 server.get('/anime/byTitle/:title', function( req, res, next) {
-    res.writeHead(200, "{'Content-Type','text/html'}");
     const promiseAnime = myanimelists.getInfoFromName(req.params.title, 'anime');
     promiseAnime.then(function(result){
-        var keys = Object.keys(result);
-        console.log(keys);
-
-        res.write('{ "response" : {\n');
-            // res.write('"keys": \n["' + keys.join('", \n"') + '"],\n');
-            res.write('"title": "' + result.title + '",\n');
-            res.write('"synopsis": "' + result.synopsis + '"\n');
-        res.write('}');
-        res.write('}');
-        res.end();
+        res.contentType = 'json';
+        res.send(result);
         return next();
         }).catch(error => console.log(error));
     }
 );
+
+server.get('/', function(req, res, err) {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    console.log("We got a connection !")
+    res.write(JSON.stringify(server.address()));
+    res.write("Hi");
+    res.end();
+});
+
+server.get('/auth', function(req, res, next) {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write(server.toString());
+    res.end();
+});
+
+server.get('/exit', function(req, res, next) {
+    return process.kill(process.pid);
+});
 
 server.listen(8888, function() {
     console.log('%s listening at %s', server.name, server.url);
