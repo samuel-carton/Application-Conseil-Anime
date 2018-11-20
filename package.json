@@ -1,0 +1,17 @@
+{
+  "name": "Application-Conseil-Anime",
+  "version": "1.0.0",
+  "description": "Une API REST pour une appli de conseil des animes",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scartoning2020/Application-Conseil-Anime.git"
+  },
+  "dependencies": {
+    "restify": "~5.0.0",
+    "myanimelists": "~1.0.1"
+  }
+}
