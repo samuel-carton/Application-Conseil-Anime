@@ -12,6 +12,6 @@
   },
   "dependencies": {
     "restify": "~5.0.0",
-	"myanimelists": "~1.0.1"
+    "myanimelists": "~1.0.1"
   }
 }
