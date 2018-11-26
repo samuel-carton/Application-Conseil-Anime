@@ -131,6 +131,8 @@ function readingAFile(filePath, callback) {
 
 const server = restify.createServer();
 
+server.use(restify.plugins.bodyParser());
+
 server.get('/anime/byTitle/:title', function( req, res, next) {
     const promiseAnime = myanimelists.getInfoFromName(req.params.title, 'anime');
     promiseAnime.then(function(result){
@@ -148,14 +150,31 @@ server.get('/', function(req, res, err) {
     res.end();
 });
 
-server.get('/auth', function(req, res, next) {
+server.post('/auth', function(req, res, next) {
     res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write(server.toString());
+    console.log(req.body.pseudo);
+    res.write("What you submitted : Pseudo = " + req.body.pseudo + ", MDP = " + req.body.pass);
     res.end();
 });
 
 server.get('/toAuth', function(req, res, next) {
-
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write("<!DOCTYPE html><html>" +
+        "<head>" +
+        "<title> Authentifiez vous ! </title>" +
+        "<body>" +
+        "<form action=\"/auth\" method=\"post\">" +
+        "<div>" +
+        "<label for=\"pseudo\"> Your pseudo </label>" +
+        "<input name=\"pseudo\" id=\"pseudo\" type=\"text\" />" +
+        "<label for=\"pass\"> Your password </label>" +
+        "<input name=\"pass\" id=\"pass\" type=\"password\" />" +
+        "<input name=\"submit\" id=\"submit\" type=\"submit\" value=\"Valider\"/>" +
+        "</div>" +
+        "</form>" +
+        "</body>" +
+        "</head>");
+    res.end();
 });
 
 server.listen(process.env.PORT || 8888, function() {
