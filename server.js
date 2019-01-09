@@ -8,7 +8,7 @@ const ivPseudo = 'Pc0ns31l';
 const mc = require('mongodb');
 const uri = "mongodb+srv://Loris:Plouf11@cluster0-c0qzl.gcp.mongodb.net/test?retryWrites=true";
 const client = new mc.MongoClient(uri, { useNewUrlParser: true });
-
+const assert = require('asert');
 
 // http.createServer(function (request, response){
 //
@@ -150,7 +150,7 @@ server.get('/anime/byTitle/:title', function( req, res, next) {
             logs.insertMany([
                 {nomAnime: result.title, tags: result.genres}
             ], function(err, result) {
-                console.log("Inserted 3 documents into the collection");
+                console.log("Inserted a document into the collection");
             });
             client.close();
         });
@@ -207,19 +207,32 @@ server.get('/toAuth', function(req, res) {
 });
 
 server.get('/bdd', function(req,res) {
+    const dbName = "ApplicationAnime";
     res.writeHead(200, {'Content-Type': 'text/html'});
-    client.connect(err => {
-        const users = client.db("ApplicationAnime").collection("User");
-        console.log(users);
-        users.find({}).toArray(function(err, docs) {
-            console.log("Found the following records");
-            console.log(docs);
+    client.connect(uri, function(err, client) {
+        assert.strictEqual(null, err);
+        console.log("Connected correctly to server");
+
+        const db = client.db(dbName);
+        findDocuments(db, function() {
+            client.close();
         });
-        // perform actions on the collection object
-        client.close();
     });
     res.end();
 });
+
+
+const findDocuments = function(db, callback) {
+    // Get the documents collection
+    const collection = db.collection('CherchLog');
+    // Find some documents
+    collection.find({}).toArray(function(err, docs) {
+        assert.strictEqual(err, null);
+        console.log("Found the following records");
+        console.log(docs);
+        callback(docs);
+    });
+}
 
 server.listen(process.env.PORT || 8888, function() {
     console.log('%s listening at %s', server.name, server.url);
