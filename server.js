@@ -187,33 +187,15 @@ server.get('/toAuth', function(req, res) {
     res.end();
 });
 
-server.get('/bdd', function(req,res) {
-    const dbName = "ApplicationAnime";
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    client.connect(uri, function(err, client) {
-        assert.strictEqual(null, err);
-        console.log("Connected correctly to server");
-
-        const db = client.db(dbName);
-        findDocuments(db, function() {
-            client.close();
-        });
+server.get('/bdd', function(req,res, next) {
+    client.connect(err => {
+        const users = client.db("ApplicationAnime").collection("User");
+        // perform actions on the collection object
+        res.send(users);
+        client.close();
+        return next();
     });
-    res.end();
 });
-
-
-const findDocuments = function(db, callback) {
-    // Get the documents collection
-    const collection = db.collection('CherchLog');
-    // Find some documents
-    collection.find({}).toArray(function(err, docs) {
-        assert.strictEqual(err, null);
-        console.log("Found the following records");
-        console.log(docs);
-        callback(docs);
-    });
-};
 
 server.listen(process.env.PORT || 8888, function() {
     console.log('%s listening at %s', server.name, server.url);
