@@ -200,6 +200,11 @@ server.get('/bdd', function(req,res) {
     client.connect(err => {
         const users = client.db("ApplicationAnime").collection("User");
         console.log(users);
+        users.find({}).toArray(function(err, docs) {
+            console.log("Found the following records");
+            console.log(docs)
+            callback(docs);
+        });
         // perform actions on the collection object
         client.close();
     });
