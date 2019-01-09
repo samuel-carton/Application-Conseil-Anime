@@ -143,6 +143,18 @@ server.get('/anime/byTitle/:title', function( req, res, next) {
     const promiseAnime = myanimelists.getInfoFromName(req.params.title, 'anime');
     promiseAnime.then(function(result){
         res.contentType = 'json';
+        client.connect(err => {
+            const logs = client.db("ApplicationAnime").collection("CherchLog");
+            // perform actions on the collection object
+            // Inserting some documents
+            logs.insertMany([
+                {nomAnime: result.title, tags: result.genres}
+            ], function(err, result) {
+                console.log("Inserted 3 documents into the collection");
+                callback(result);
+            });
+            client.close();
+        });
         res.send(result);
         return next();
         }).catch(error => console.log(error));
@@ -202,8 +214,7 @@ server.get('/bdd', function(req,res) {
         console.log(users);
         users.find({}).toArray(function(err, docs) {
             console.log("Found the following records");
-            console.log(docs)
-            callback(docs);
+            console.log(docs);
         });
         // perform actions on the collection object
         client.close();
