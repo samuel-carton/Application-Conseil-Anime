@@ -3,7 +3,12 @@ const dt = require('./firstmodule');
 const url = require('url');
 const myanimelists = require('myanimelists');
 const restify = require('restify');
-
+const crypto = require('crypto'), algorithm = 'aes-256-ctr', password = 'C0ns3ils';
+const ivPseudo = 'Pc0ns31l';
+const mc = require('mongodb');
+const uri = "mongodb+srv://Loris:Plouf11@cluster0-c0qzl.gcp.mongodb.net/test?retryWrites=true";
+const client = new mc.MongoClient(uri, { useNewUrlParser: true });
+const assert = require('assert');
 
 // http.createServer(function (request, response){
 //
@@ -130,13 +135,25 @@ function readingAFile(filePath, callback) {
 
 
 const server = restify.createServer();
-
 server.use(restify.plugins.bodyParser());
+
+
 
 server.get('/anime/byTitle/:title', function( req, res, next) {
     const promiseAnime = myanimelists.getInfoFromName(req.params.title, 'anime');
     promiseAnime.then(function(result){
         res.contentType = 'json';
+        client.connect(err => {
+            const logs = client.db("ApplicationAnime").collection("CherchLog");
+            // perform actions on the collection object
+            // Inserting some documents
+            logs.insertMany([
+                {nomAnime: result.title, tags: result.genres}
+            ], function(err, result) {
+                console.log("Inserted a document into the collection");
+            });
+            client.close();
+        });
         res.send(result);
         return next();
         }).catch(error => console.log(error));
@@ -150,14 +167,7 @@ server.get('/', function(req, res, err) {
     res.end();
 });
 
-server.post('/auth', function(req, res, next) {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    console.log(req.body.pseudo);
-    res.write("What you submitted : Pseudo = " + req.body.pseudo + ", MDP = " + req.body.pass);
-    res.end();
-});
-
-server.get('/toAuth', function(req, res, next) {
+server.get('/toAuth', function(req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write("<!DOCTYPE html><html>" +
         "<head>" +
@@ -176,6 +186,34 @@ server.get('/toAuth', function(req, res, next) {
         "</head>");
     res.end();
 });
+
+server.get('/bdd', function(req,res) {
+    const dbName = "ApplicationAnime";
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    client.connect(uri, function(err, client) {
+        assert.strictEqual(null, err);
+        console.log("Connected correctly to server");
+
+        const db = client.db(dbName);
+        findDocuments(db, function() {
+            client.close();
+        });
+    });
+    res.end();
+});
+
+
+const findDocuments = function(db, callback) {
+    // Get the documents collection
+    const collection = db.collection('CherchLog');
+    // Find some documents
+    collection.find({}).toArray(function(err, docs) {
+        assert.strictEqual(err, null);
+        console.log("Found the following records");
+        console.log(docs);
+        callback(docs);
+    });
+};
 
 server.listen(process.env.PORT || 8888, function() {
     console.log('%s listening at %s', server.name, server.url);

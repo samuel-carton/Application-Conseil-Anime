@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".AffichageAnime"
-    tools:layout_editor_absoluteY="81dp">
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             tools:context=".AffichageAnime"
+                                             tools:layout_editor_absoluteY="81dp">
 
     <TextView
         android:id="@+id/textView4"
@@ -16,38 +16,56 @@
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="273dp" />
+        app:layout_constraintBottom_toTopOf="@+id/love_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/favorite_btn"
+        />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="24dp"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginRight="9dp"
+        android:layout_marginBottom="66dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toStartOf="@+id/favorite_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/backgrounds/scenic"/>
 
     <TextView
+
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="246dp"
         android:contentDescription="nom du studio"
         android:text="Studio : "
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="240dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        />
 
     <ImageButton
         android:id="@+id/favorite_btn"
         style="?android:attr/borderlessButtonStyle"
+
         android:layout_width="35dp"
         android:layout_height="34dp"
         android:src="@android:drawable/btn_star"
         android:tint="@color/colorPrimary"
         tools:layout_editor_absoluteX="172dp"
         tools:layout_editor_absoluteY="174dp" />
+
 
     <ImageButton
         android:id="@+id/love_btn"
@@ -80,9 +98,11 @@
         android:id="@+id/nom_anime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:contentDescription="nom anime"
         android:textSize="36sp"
         tools:layout_editor_absoluteX="210dp"
         tools:layout_editor_absoluteY="51dp" />
+
 
 </android.support.constraint.ConstraintLayout>
