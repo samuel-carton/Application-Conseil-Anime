@@ -167,25 +167,6 @@ server.get('/', function(req, res, err) {
     res.end();
 });
 
-server.post('/auth', function(req, res) {
-    var cipherPseudo = crypto.createCipheriv(algorithm, password, ivPseudo);
-    var ivPass = "";
-    var cipherPass = crypto.createCipheriv(algorithm, password);
-
-    var cryptedPseudo = cipherPseudo.update(req.body.pseudo, 'utf8', 'hex');
-    var cryptedPass = cipherPass.update(req.body.pass, 'utf8', 'hex');
-
-    cryptedPseudo += cipherPseudo.final('hex');
-    cryptedPass += cipherPass.final('hex');
-    console.log("Crypted pseudo = " + cryptedPseudo + ", Tag = " + cipherPseudo.getAuthTag() + ", IV = " + ivPseudo);
-    console.log("Crypted Password = " + cryptedPass + ", Tag = " + cipherPass.getAuthTag() + ", IV" + ivPass);
-
-
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write("Here's what you submitted : Pseudo = " + req.body.pseudo + ", Password = " + req.body.pass);
-    res.end();
-});
-
 server.get('/toAuth', function(req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write("<!DOCTYPE html><html>" +
@@ -232,7 +213,7 @@ const findDocuments = function(db, callback) {
         console.log(docs);
         callback(docs);
     });
-}
+};
 
 server.listen(process.env.PORT || 8888, function() {
     console.log('%s listening at %s', server.name, server.url);
