@@ -5,9 +5,9 @@ const myanimelists = require('myanimelists');
 const restify = require('restify');
 const crypto = require('crypto'), algorithm = 'aes-256-ctr', password = 'C0ns3ils';
 const ivPseudo = 'Pc0ns31l';
-const mc = require('mongodb').MongoClient;
-const uri = "mongodb+srv://app:baqzsed123456@cluster0-c0qzl.gcp.mongodb.net/test?retryWrites=true";
-const client = new MongoClient(uri, { useNewUrlParser: true });
+const mc = require('mongodb');
+const uri = "mongodb+srv://Loris:Plouf11@cluster0-c0qzl.gcp.mongodb.net/test?retryWrites=true";
+const client = new mc.MongoClient(uri, { useNewUrlParser: true });
 
 
 // http.createServer(function (request, response){
