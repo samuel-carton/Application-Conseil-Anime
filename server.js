@@ -151,7 +151,6 @@ server.get('/anime/byTitle/:title', function( req, res, next) {
                 {nomAnime: result.title, tags: result.genres}
             ], function(err, result) {
                 console.log("Inserted 3 documents into the collection");
-                callback(result);
             });
             client.close();
         });
