@@ -11,8 +11,8 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="nom du studio"
-        android:text="Nombres d'épisodes : Nb épisodes"
+        android:contentDescription="nb episodes"
+        android:text="Nombres d'épisodes :"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -28,22 +28,11 @@
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="106dp"
-        android:text="Nom anime"
-        android:textAppearance="@android:style/TextAppearance.WindowTitle"
-        android:textColor="@android:color/black"
-        android:textSize="36sp"
-        tools:layout_editor_absoluteX="183dp"
-        tools:layout_editor_absoluteY="24dp" />
-
-    <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="nom du studio"
-        android:text="Studio : Nom Studio"
+        android:text="Studio : "
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -53,19 +42,47 @@
     <ImageButton
         android:id="@+id/favorite_btn"
         style="?android:attr/borderlessButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="35dp"
+        android:layout_height="34dp"
         android:src="@android:drawable/btn_star"
         android:tint="@color/colorPrimary"
-        tools:layout_editor_absoluteX="174dp"
-        tools:layout_editor_absoluteY="139dp" />
+        tools:layout_editor_absoluteX="172dp"
+        tools:layout_editor_absoluteY="174dp" />
 
     <ImageButton
         android:id="@+id/love_btn"
         style="?android:attr/borderlessButtonStyle"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@drawable/simpleheart"
+        tools:layout_editor_absoluteX="213dp"
+        tools:layout_editor_absoluteY="176dp" />
+
+    <EditText
+        android:id="@+id/studio_name"
+        android:layout_width="wrap_content"
+        android:layout_height="47dp"
+        android:ems="10"
+        android:inputType="text"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="226dp" />
+
+    <EditText
+        android:id="@+id/nb_episodes"
+        android:layout_width="118dp"
+        android:layout_height="47dp"
+        android:ems="10"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="188dp"
+        tools:layout_editor_absoluteY="265dp" />
+
+    <TextView
+        android:id="@+id/nom_anime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="360dp" />
+        android:contentDescription="nom anime"
+        android:textSize="36sp"
+        tools:layout_editor_absoluteX="210dp"
+        tools:layout_editor_absoluteY="51dp" />
 
 </android.support.constraint.ConstraintLayout>
