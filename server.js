@@ -8,7 +8,7 @@ const ivPseudo = 'Pc0ns31l';
 const mc = require('mongodb');
 const uri = "mongodb+srv://Loris:Plouf11@cluster0-c0qzl.gcp.mongodb.net/test?retryWrites=true";
 const client = new mc.MongoClient(uri, { useNewUrlParser: true });
-const assert = require('asert');
+const assert = require('assert');
 
 // http.createServer(function (request, response){
 //
