@@ -3,6 +3,11 @@ const dt = require('./firstmodule');
 const url = require('url');
 const myanimelists = require('myanimelists');
 const restify = require('restify');
+const crypto = require('crypto'), algorithm = 'aes-256-ctr', password = 'C0ns3ils';
+const ivPseudo = 'Pc0ns31l';
+const mc = require('mongodb').MongoClient;
+const uri = "mongodb+srv://app:baqzsed123456@cluster0-c0qzl.gcp.mongodb.net/test?retryWrites=true";
+const client = new MongoClient(uri, { useNewUrlParser: true });
 
 
 // http.createServer(function (request, response){
@@ -130,8 +135,9 @@ function readingAFile(filePath, callback) {
 
 
 const server = restify.createServer();
-
 server.use(restify.plugins.bodyParser());
+
+
 
 server.get('/anime/byTitle/:title', function( req, res, next) {
     const promiseAnime = myanimelists.getInfoFromName(req.params.title, 'anime');
@@ -150,14 +156,26 @@ server.get('/', function(req, res, err) {
     res.end();
 });
 
-server.post('/auth', function(req, res, next) {
+server.post('/auth', function(req, res) {
+    var cipherPseudo = crypto.createCipheriv(algorithm, password, ivPseudo);
+    var ivPass = "";
+    var cipherPass = crypto.createCipheriv(algorithm, password);
+
+    var cryptedPseudo = cipherPseudo.update(req.body.pseudo, 'utf8', 'hex');
+    var cryptedPass = cipherPass.update(req.body.pass, 'utf8', 'hex');
+
+    cryptedPseudo += cipherPseudo.final('hex');
+    cryptedPass += cipherPass.final('hex');
+    console.log("Crypted pseudo = " + cryptedPseudo + ", Tag = " + cipherPseudo.getAuthTag() + ", IV = " + ivPseudo);
+    console.log("Crypted Password = " + cryptedPass + ", Tag = " + cipherPass.getAuthTag() + ", IV" + ivPass);
+
+
     res.writeHead(200, {'Content-Type': 'text/html'});
-    console.log(req.body.pseudo);
-    res.write("What you submitted : Pseudo = " + req.body.pseudo + ", MDP = " + req.body.pass);
+    res.write("Here's what you submitted : Pseudo = " + req.body.pseudo + ", Password = " + req.body.pass);
     res.end();
 });
 
-server.get('/toAuth', function(req, res, next) {
+server.get('/toAuth', function(req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write("<!DOCTYPE html><html>" +
         "<head>" +
@@ -174,6 +192,17 @@ server.get('/toAuth', function(req, res, next) {
         "</form>" +
         "</body>" +
         "</head>");
+    res.end();
+});
+
+server.get('/bdd', function(req,res) {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    client.connect(err => {
+        const users = client.db("ApplicationAnime").collection("User");
+        console.log(users);
+        // perform actions on the collection object
+        client.close();
+    });
     res.end();
 });
 
