@@ -7,7 +7,7 @@ const crypto = require('crypto'), algorithm = 'aes-256-ctr', password = 'C0ns3il
 const ivPseudo = 'Pc0ns31l';
 const mc = require('mongodb');
 const uri = "mongodb+srv://Loris:Plouf11@cluster0-c0qzl.gcp.mongodb.net/test?retryWrites=true";
-const client = new mc.MongoClient(uri, { useNewUrlParser: true });
+const Mgclient = new mc.MongoClient(uri, { useNewUrlParser: true });
 const assert = require('assert');
 
 // http.createServer(function (request, response){
@@ -188,13 +188,13 @@ server.get('/toAuth', function(req, res) {
 });
 
 server.get('/bdd', function(req,res, next) {
-    client.connect(err => {
+    Mgclient.connect(uri, function(err, client) {
         const users = client.db("ApplicationAnime").collection("User");
         // perform actions on the collection object
         res.send(users);
         client.close();
-        return next();
     });
+    return next();
 });
 
 server.listen(process.env.PORT || 8888, function() {
