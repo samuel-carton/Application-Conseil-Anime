@@ -7,7 +7,7 @@ const crypto = require('crypto'), algorithm = 'aes-256-ctr', password = 'C0ns3il
 const ivPseudo = 'Pc0ns31l';
 const mc = require('mongodb');
 const uri = "mongodb+srv://Loris:Plouf11@cluster0-c0qzl.gcp.mongodb.net/test?retryWrites=true";
-const Mgclient = new mc.MongoClient(uri, { useNewUrlParser: true });
+const client = new mc.MongoClient(uri, { useNewUrlParser: true });
 const assert = require('assert');
 
 // http.createServer(function (request, response){
@@ -188,29 +188,15 @@ server.get('/toAuth', function(req, res) {
 });
 
 server.get('/bdd', function(req,res, next) {
-    // Connection URL
-    const url = 'mongodb://localhost:27017';
-
-    // Database Name
-    const dbName = 'ApplicationAnime';
-
-    // Use connect method to connect to the server
-    Mgclient.connect(url).then(function(err, client) {
-        assert.strictEqual(null, err);
-        console.log("Connected successfully to server");
-
-        const db = client.db(dbName);
-
-        // Get the documents collection
-        const collection = db.collection('User');
-        // Find some documents
-        collection.find({}).toArray(function(err, docs) {
-            assert.strictEqual(err, null);
+    client.connect(err => {
+        const users = client.db("ApplicationAnime").collection("User");
+        console.log(users);
+        users.find({}).toArray(function (err, docs) {
             console.log("Found the following records");
             console.log(docs)
             callback(docs);
         });
-
+        // perform actions on the collection object	        // perform actions on the collection object
         client.close();
     });
 });
