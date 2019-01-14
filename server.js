@@ -188,13 +188,21 @@ server.get('/toAuth', function(req, res) {
 });
 
 server.get('/bdd', function(req,res, next) {
-    Mgclient.connect(uri, function(err, client) {
-        const users = client.db("ApplicationAnime").collection("User");
-        // perform actions on the collection object
-        res.send(users);
+    // Connection URL
+    const url = 'mongodb://localhost:27017';
+
+    // Database Name
+    const dbName = 'ApplicationAnime';
+
+    // Use connect method to connect to the server
+    Mgclient.connect(url, function(err, client) {
+        assert.strictEqual(null, err);
+        console.log("Connected successfully to server");
+
+        const db = client.db(dbName);
+
         client.close();
     });
-    return next();
 });
 
 server.listen(process.env.PORT || 8888, function() {
