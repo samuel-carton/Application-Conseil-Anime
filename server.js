@@ -19,10 +19,30 @@ server.get('/', function(req, res, err) {
     res.end();
 });
 
-server.get('/bdd', (req,res, next) => {
+server.get('/bdd/users', (req,res, next) => {
     mClient.connect()
         .then(function (connection) {
             const collection = connection.db("ApplicationAnime").collection("User");
+            console.log(collection);
+            // Finding documents
+            collection.find({}).toArray( function( err, data ) {
+                if (err) res.send(500, "Error while trying to find documents in mongodb :" + err);
+                console.log(data);
+                res.send(200, data);
+            });
+            // Closing the connection
+            mClient.close()
+                .then(succ => console.log("Succesfully closing the connection"))
+                .catch(err => console.log("Erro while trying to close the connection :" + err));
+        })
+        .catch( function (err) { console.log(err); res.send(500, err) });
+    next();
+});
+
+server.get('/bdd/logs', (req,res, next) => {
+    mClient.connect()
+        .then(function (connection) {
+            const collection = connection.db("ApplicationAnime").collection("CherchLog");
             console.log(collection);
             // Finding documents
             collection.find({}).toArray( function( err, data ) {
