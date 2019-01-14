@@ -201,6 +201,16 @@ server.get('/bdd', function(req,res, next) {
 
         const db = client.db(dbName);
 
+        // Get the documents collection
+        const collection = db.collection('User');
+        // Find some documents
+        collection.find({}).toArray(function(err, docs) {
+            assert.strictEqual(err, null);
+            console.log("Found the following records");
+            console.log(docs)
+            callback(docs);
+        });
+
         client.close();
     });
 });
