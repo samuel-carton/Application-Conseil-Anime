@@ -190,6 +190,7 @@ server.get('/toAuth', function(req, res) {
 server.get('/bdd', function(req,res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
     client.connect(err => {
+        if (err) throw err;
         const users = client.db("ApplicationAnime").collection("User");
         console.log(users);
         users.find({}).toArray(function(err, docs) {
