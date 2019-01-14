@@ -26,7 +26,7 @@ server.get('/bdd', (req,res, next) => {
             console.log(collection);
         })
         .catch( function (err) { console.log(err); res.send(500, err) });
-    return next;
+    next();
 });
 
 server.get('/anime/byTitle/:title', function( req, res, next) {
