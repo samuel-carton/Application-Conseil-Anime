@@ -27,6 +27,7 @@ server.get('/bdd', (req,res, next) => {
             mClient.close()
                 .then(succ => console.log("Succesfully closing the connection"))
                 .catch(err => console.log("Erro while trying to close the connection :" + err));
+            res.send(200, "The connection is a success");
         })
         .catch( function (err) { console.log(err); res.send(500, err) });
     next();

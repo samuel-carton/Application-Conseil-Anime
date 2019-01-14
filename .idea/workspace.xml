@@ -21,8 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="27" column="80" lean-forward="true" selection-start-line="27" selection-start-column="80" selection-end-line="27" selection-end-column="80" />
+            <state relative-caret-position="222">
+              <caret line="29" column="57" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="57" />
               <folding>
                 <element signature="e#525#661#0" />
                 <element signature="e#5392#6118#0" />
@@ -132,7 +132,7 @@
       <workItem from="1543408775039" duration="3703000" />
       <workItem from="1547021272715" duration="10009000" />
       <workItem from="1547146653571" duration="595000" />
-      <workItem from="1547457485020" duration="8310000" />
+      <workItem from="1547457485020" duration="8457000" />
     </task>
     <task id="LOCAL-00001" summary="Back pedal">
       <created>1547482188073</created>
@@ -169,11 +169,18 @@
       <option name="project" value="LOCAL" />
       <updated>1547484110110</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Promises and callbacks and broken dreams">
+      <created>1547484387775</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1547484387775</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37311000" />
+    <option name="totallyTimeSpent" value="37458000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -208,7 +215,8 @@
     <MESSAGE value="            Back pedal again" />
     <MESSAGE value="Slow going upwards ?" />
     <MESSAGE value="Are you kidding me ?" />
-    <option name="LAST_COMMIT_MESSAGE" value="Are you kidding me ?" />
+    <MESSAGE value="Promises and callbacks and broken dreams" />
+    <option name="LAST_COMMIT_MESSAGE" value="Promises and callbacks and broken dreams" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/node_modules/restify/lib/plugins/authorization.js">
@@ -244,8 +252,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="27" column="80" lean-forward="true" selection-start-line="27" selection-start-column="80" selection-end-line="27" selection-end-column="80" />
+        <state relative-caret-position="222">
+          <caret line="29" column="57" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="57" />
           <folding>
             <element signature="e#525#661#0" />
             <element signature="e#5392#6118#0" />
