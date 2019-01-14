@@ -21,8 +21,8 @@ server.get('/', function(req, res, err) {
 
 server.get('/bdd', (req,res, next) => {
     mClient.connect()
-        .then(connection => res.send(connection.db("ApplicationAnime").collection("User")))
-        .catch( err => res.send(err));
+        .then(connection => res.send(200, connection.db("ApplicationAnime").collection("User")))
+        .catch( function (err) { console.log(err); res.send(500, err) });
 });
 
 server.get('/anime/byTitle/:title', function( req, res, next) {
