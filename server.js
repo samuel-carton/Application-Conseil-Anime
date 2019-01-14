@@ -188,7 +188,7 @@ server.get('/toAuth', function(req, res) {
 });
 
 server.get('/bdd', function(req,res, next) {
-    client.connect(err => {
+    client.connect.then(err => {
         const users = client.db("ApplicationAnime").collection("User");
         console.log(users);
         users.find({}).toArray(function (err, docs) {
