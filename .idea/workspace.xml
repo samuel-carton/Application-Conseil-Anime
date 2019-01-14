@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="743f269c-ae02-4442-9820-37c15df93f51" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -22,21 +23,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="357">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
               <folding>
+                <element signature="e#525#661#0" />
                 <element signature="e#5392#6118#0" />
-                <element signature="e#6163#6298#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -142,7 +134,7 @@
       <workItem from="1543408775039" duration="3703000" />
       <workItem from="1547021272715" duration="10009000" />
       <workItem from="1547146653571" duration="595000" />
-      <workItem from="1547457485020" duration="6918000" />
+      <workItem from="1547457485020" duration="7412000" />
     </task>
     <task id="LOCAL-00001" summary="Back pedal">
       <created>1547482188073</created>
@@ -158,11 +150,18 @@
       <option name="project" value="LOCAL" />
       <updated>1547482372881</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="            Back pedal again">
+      <created>1547482951043</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1547482951043</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35919000" />
+    <option name="totallyTimeSpent" value="36413000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -194,7 +193,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Back pedal" />
     <MESSAGE value="Back pedal again" />
-    <option name="LAST_COMMIT_MESSAGE" value="Back pedal again" />
+    <MESSAGE value="            Back pedal again" />
+    <option name="LAST_COMMIT_MESSAGE" value="            Back pedal again" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/node_modules/restify/lib/plugins/authorization.js">
@@ -230,11 +230,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="357">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
           <folding>
+            <element signature="e#525#661#0" />
             <element signature="e#5392#6118#0" />
-            <element signature="e#6163#6298#0" />
           </folding>
         </state>
       </provider>

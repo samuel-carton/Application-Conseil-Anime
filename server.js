@@ -3,40 +3,26 @@ const myanimelists = require('myanimelists');
 const mc = require('mongodb');
 const uri = "mongodb+srv://Loris:Plouf11@cluster0-c0qzl.gcp.mongodb.net/test?retryWrites=true";
 // const client = new mc.MongoClient(uri, { useNewUrlParser: true });
-
-const config  = require('./config');
 const restify = require('restify');
-const mongodb = require('mongodb').MongoClient;
+const mClient = mc.MongoClient(uri, { useNewUrlParser: true });
 
 /**
  * Initialize Server
  */
-
-const server = restify.createServer({
-    name    : config.name,
-    version : config.version
-});
+const server = restify.createServer();
 server.use(restify.plugins.bodyParser());
-const db = config.db;
 
-// assign Users collection to variable for further use
-const collection = db.collection('User');
+server.get('/', function(req, res, err) {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    console.log("We got a connection !");
+    res.write("Hi");
+    res.end();
+});
 
 server.get('/bdd', (req,res, next) => {
-    let limit = parseInt(req.query.limit, 10) || 10, // default limit to 10 docs
-        skip  = parseInt(req.query.skip, 10) || 0, // default skip to 0 docs
-        query = req.query || {};
-
-    // remove skip and limit from query to avoid false querying
-    delete query.skip;
-    delete query.limit;
-
-    // find todos and convert to array (with optional query, skip and limit)
-    collection.find(query).skip(skip).limit(limit).toArray()
-        .then(docs => res.send(200, docs))
-        .catch(err => res.send(500, err));
-
-    next()
+    mClient.connect()
+        .then(connection => res.send(connection.db("ApplicationAnime").collection("User")))
+        .catch( err => res.send(err));
 });
 
 server.get('/anime/byTitle/:title', function( req, res, next) {
@@ -59,13 +45,6 @@ server.get('/anime/byTitle/:title', function( req, res, next) {
         }).catch(error => console.log(error));
     }
 );
-
-server.get('/', function(req, res, err) {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    console.log("We got a connection !");
-    res.write("Hi");
-    res.end();
-});
 
 server.listen(process.env.PORT || 8888, function() {
     console.log('%s listening at %s', server.name, server.url);
