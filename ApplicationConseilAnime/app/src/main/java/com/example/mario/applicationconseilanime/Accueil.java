@@ -1,5 +1,6 @@
 package com.example.mario.applicationconseilanime;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,12 +11,15 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.List;
+
 
 public class Accueil extends AppCompatActivity {
 
     private String TAG = Accueil.class.getSimpleName();
     private String countryS = "rien";
     private TextView testJSON;
+    List<String> results;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +28,13 @@ public class Accueil extends AppCompatActivity {
 
         testJSON = (TextView) findViewById(R.id.testJSON);
 
-        new GetContacts().execute();
+       // new GetContacts().execute();
+
+
+        Intent myIntent = new Intent(this, AffichageAnime.class);
+        startActivity(myIntent);
+
+
     }
 
 
