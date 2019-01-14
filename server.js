@@ -187,8 +187,7 @@ server.get('/toAuth', function(req, res) {
     res.end();
 });
 
-server.get('/bdd', function(req,res) {
-    res.writeHead(200, {'Content-Type': 'text/html'});
+server.get('/bdd', function(req,res, next) {
     client.connect(err => {
         if (err) throw err;
         const users = client.db("ApplicationAnime").collection("CherchLog");
@@ -196,11 +195,12 @@ server.get('/bdd', function(req,res) {
         users.find({}).toArray(function(err, docs) {
             console.log("Found the following records");
             console.log(docs);
+            res.send(docs);
         });
         // perform actions on the collection object
         client.close();
     });
-    res.end();
+    return next;
 });
 
 server.listen(process.env.PORT || 8888, function() {
