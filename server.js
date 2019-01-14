@@ -195,7 +195,7 @@ server.get('/bdd', function(req,res, next) {
     const dbName = 'ApplicationAnime';
 
     // Use connect method to connect to the server
-    Mgclient.connect(url, function(err, client) {
+    Mgclient.connect(url).then(function(err, client) {
         assert.strictEqual(null, err);
         console.log("Connected successfully to server");
 
