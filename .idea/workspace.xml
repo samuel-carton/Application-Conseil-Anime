@@ -21,8 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="35" column="27" lean-forward="true" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
+            <state relative-caret-position="137">
+              <caret line="26" column="32" lean-forward="true" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
               <folding>
                 <element signature="e#525#661#0" />
                 <element signature="e#5392#6118#0" />
@@ -133,7 +133,7 @@
       <workItem from="1543408775039" duration="3703000" />
       <workItem from="1547021272715" duration="10009000" />
       <workItem from="1547146653571" duration="595000" />
-      <workItem from="1547457485020" duration="8832000" />
+      <workItem from="1547457485020" duration="9094000" />
     </task>
     <task id="LOCAL-00001" summary="Back pedal">
       <created>1547482188073</created>
@@ -184,11 +184,18 @@
       <option name="project" value="LOCAL" />
       <updated>1547484531624</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Captain, I see an island">
+      <created>1547484911854</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1547484911854</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37833000" />
+    <option name="totallyTimeSpent" value="38095000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -225,7 +232,8 @@
     <MESSAGE value="Are you kidding me ?" />
     <MESSAGE value="Promises and callbacks and broken dreams" />
     <MESSAGE value="Boomerangs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Boomerangs" />
+    <MESSAGE value="Captain, I see an island" />
+    <option name="LAST_COMMIT_MESSAGE" value="Captain, I see an island" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/node_modules/restify/lib/plugins/authorization.js">
@@ -261,8 +269,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="35" column="27" lean-forward="true" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
+        <state relative-caret-position="137">
+          <caret line="26" column="32" lean-forward="true" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
           <folding>
             <element signature="e#525#661#0" />
             <element signature="e#5392#6118#0" />
