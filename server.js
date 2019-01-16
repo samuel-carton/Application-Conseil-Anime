@@ -22,7 +22,8 @@ server.get('/', function(req, res, err) {
 server.get('/bdd/users', (req,res, next) => {
     mClient.connect()
         .then(function (connection) {
-            const collection = connection.db("ApplicationAnime").collection("User");
+            const bdd = connection.db("ApplicationAnime");
+            const collection = bdd.collection("User");
             console.log(collection);
             // Finding documents
             collection.find({}).toArray( function( err, data ) {
@@ -33,9 +34,12 @@ server.get('/bdd/users', (req,res, next) => {
             // Closing the connection
             mClient.close()
                 .then(succ => console.log("Succesfully closing the connection"))
-                .catch(err => console.log("Erro while trying to close the connection :" + err));
+                .catch(err => console.log("Error while trying to close the connection :" + err));
         })
-        .catch( function (err) { console.log(err); res.send(500, err) });
+        .catch( function (err) {
+            console.log(err);
+            res.send(500, err);
+        });
     next();
 });
 
@@ -55,7 +59,7 @@ server.get('/bdd/logs', (req,res, next) => {
                 .then(succ => console.log("Succesfully closing the connection"))
                 .catch(err => console.log("Erro while trying to close the connection :" + err));
         })
-        .catch( function (err) { console.log(err); res.send(500, err) });
+        .catch( function (err) { console.log(err); res.send(500, err); });
     next();
 });
 
