@@ -64,23 +64,31 @@ server.get('/bdd/logs', (req,res, next) => {
 });
 
 server.get('/anime/byTitle/:title', function( req, res, next) {
-    const promiseAnime = myanimelists.getInfoFromName(req.params.title, 'anime');
+    const promiseAnime = myanimelists.getInfoFromName(req.params.title);
     promiseAnime.then(function(result){
         res.contentType = 'json';
-        client.connect(err => {
-            const logs = client.db("ApplicationAnime").collection("CherchLog");
-            // perform actions on the collection object
-            // Inserting some documents
-            logs.insertMany([
-                {nomAnime: result.title, tags: result.genres}
-            ], function(err, result) {
-                console.log("Inserted a document into the collection");
-            });
-            client.close();
-        });
+        mClient.connect()
+            .then(function (connection) {
+                const logs = connection.db("ApplicationAnime").collection("CherchLog");
+                // perform actions on the collection object
+                // Inserting some documents
+                logs.insertMany([
+                    {nomAnime: result.title, tags: result.genres}
+                ]).then( function(scs) {
+                    console.log("Inserted a document into the collection : " + scs);
+                    })
+                .catch( function (err) {
+                    console.log("Error while inserting into the database : " + err);
+                    res.send(err);
+                });
+                mClient.close()
+                    .then(succ => console.log("Succesfully closing the connection"))
+                    .catch(err => console.log("Erro while trying to close the connection :" + err));
+            })
+            .catch( function (err) { console.log(err); res.send(500, err); });
         res.send(result);
-        return next();
         }).catch(error => console.log(error));
+    next();
     }
 );
 
