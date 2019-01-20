@@ -5,8 +5,8 @@ const uri = "mongodb+srv://Loris:Plouf11@cluster0-c0qzl.gcp.mongodb.net/test?ret
 // const client = new mc.MongoClient(uri, { useNewUrlParser: true });
 const restify = require('restify');
 const options = {
-    server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
-    replset: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }
+    server: { socketOptions: { keepAlive: 50000, connectTimeoutMS: 30000 } },
+    replset: { socketOptions: { keepAlive: 50000, connectTimeoutMS: 30000 } }
 };
 
 const mClient = mc.MongoClient(uri, options);
