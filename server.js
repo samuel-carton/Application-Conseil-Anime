@@ -68,12 +68,12 @@ server.get('/bdd/logs', (req,res, next) => {
 });
 
 server.get('/newlogs', function (req, res, next) {
-    const conn = mongoose.createConnection("mongodb+srv://Loris:Plouf11@cluster0-c0qzl.gcp.mongodb.net/ApplcationAnime?retryWrites=true", {useNewUrlParser: true});
+    const conn = mongoose.createConnection("mongodb+srv://Loris:Plouf11@cluster0-c0qzl.gcp.mongodb.net/ApplicationAnime?retryWrites=true", {useNewUrlParser: true});
     console.log("connection created");
     const CherchLogSchema = new Schema({
         nomAnime: String,
         genres: [String]
-    });
+    }, { collection: 'CherchLogs' });
     var Log = conn.model('CherchLog', CherchLogSchema);
     Log.find({}, function (err, docs) {
         if (err) {
@@ -93,7 +93,7 @@ server.get('/anime/byTitle/:title', function( req, res, next) {
         const CherchLogSchema = new Schema({
             nomAnime: String,
             genres: [String]
-        });
+        }, { collection: 'CherchLogs' });
         var Log = conn.model('CherchLog', CherchLogSchema);
         var toStore = new Log({nomAnime: result.title, genres: result.tags});
         toStore.save(function (err) {

@@ -22,8 +22,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="90" column="124" selection-start-line="90" selection-start-column="124" selection-end-line="90" selection-end-column="124" />
+            <state relative-caret-position="221">
+              <caret line="81" column="16" lean-forward="true" selection-start-line="81" selection-start-column="16" selection-end-line="81" selection-end-column="16" />
               <folding>
                 <element signature="e#525#661#0" />
                 <element signature="e#709#1586#0" />
@@ -139,7 +139,7 @@
       <workItem from="1547594787512" duration="5479000" />
       <workItem from="1547643233970" duration="1349000" />
       <workItem from="1547983990672" duration="509000" />
-      <workItem from="1547985017392" duration="13447000" />
+      <workItem from="1547985017392" duration="16830000" />
     </task>
     <task id="LOCAL-00001" summary="Back pedal">
       <created>1547482188073</created>
@@ -295,11 +295,18 @@
       <option name="project" value="LOCAL" />
       <updated>1548001535286</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Changement de collection">
+      <created>1548001735995</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1548001735995</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59179000" />
+    <option name="totallyTimeSpent" value="62562000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -317,9 +324,9 @@
       <window_info anchor="bottom" id="Run" order="5" weight="0.3286119" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.33144477" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.33144477" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -376,7 +383,8 @@
     <MESSAGE value="Mongoose addition" />
     <MESSAGE value="Fixing typos" />
     <MESSAGE value="Changement de base de données" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changement de base de données" />
+    <MESSAGE value="Changement de collection" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changement de collection" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/node_modules/restify/lib/plugins/authorization.js">
@@ -406,8 +414,8 @@
     <entry file="file://$PROJECT_DIR$/config.js" />
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="90" column="124" selection-start-line="90" selection-start-column="124" selection-end-line="90" selection-end-column="124" />
+        <state relative-caret-position="221">
+          <caret line="81" column="16" lean-forward="true" selection-start-line="81" selection-start-column="16" selection-end-line="81" selection-end-column="16" />
           <folding>
             <element signature="e#525#661#0" />
             <element signature="e#709#1586#0" />
