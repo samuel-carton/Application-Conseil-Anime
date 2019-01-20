@@ -88,7 +88,7 @@ server.get('/anime/byTitle/:title', function( req, res, next) {
     const promiseAnime = myanimelists.getInfoFromName(req.params.title);
     promiseAnime.then(function (result) {
         res.contentType = 'json';
-        const conn = mongoose.createConnection("mongodb+srv://Loris:Plouf11@cluster0-c0qzl.gcp.mongodb.net/test?retryWrites=true", {useNewUrlParser: true});
+        const conn = mongoose.createConnection("mongodb+srv://Loris:Plouf11@cluster0-c0qzl.gcp.mongodb.net/ApplicationAnime?retryWrites=true", {useNewUrlParser: true});
         console.log("connection created");
         const CherchLogSchema = new Schema({
             nomAnime: String,

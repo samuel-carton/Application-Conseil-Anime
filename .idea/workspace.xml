@@ -22,15 +22,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="78" column="8" lean-forward="true" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="8" />
+            <state relative-caret-position="68">
+              <caret line="90" column="124" selection-start-line="90" selection-start-column="124" selection-end-line="90" selection-end-column="124" />
               <folding>
                 <element signature="e#525#661#0" />
                 <element signature="e#709#1586#0" />
                 <element signature="e#1633#2453#0" />
-                <element signature="e#2573#3359#0" />
                 <element signature="e#3807#3865#0" />
-                <element signature="e#4306#5020#0" />
               </folding>
             </state>
           </provider>
@@ -141,7 +139,7 @@
       <workItem from="1547594787512" duration="5479000" />
       <workItem from="1547643233970" duration="1349000" />
       <workItem from="1547983990672" duration="509000" />
-      <workItem from="1547985017392" duration="12492000" />
+      <workItem from="1547985017392" duration="13447000" />
     </task>
     <task id="LOCAL-00001" summary="Back pedal">
       <created>1547482188073</created>
@@ -283,11 +281,25 @@
       <option name="project" value="LOCAL" />
       <updated>1547999325748</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Fixing typos">
+      <created>1548000835074</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1548000835074</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Changement de base de données">
+      <created>1548001535286</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1548001535286</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58224000" />
+    <option name="totallyTimeSpent" value="59179000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -362,7 +374,9 @@
     <MESSAGE value="Still trying to keep th connecc alive" />
     <MESSAGE value="Stayin' alive" />
     <MESSAGE value="Mongoose addition" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mongoose addition" />
+    <MESSAGE value="Fixing typos" />
+    <MESSAGE value="Changement de base de données" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changement de base de données" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/node_modules/restify/lib/plugins/authorization.js">
@@ -392,15 +406,13 @@
     <entry file="file://$PROJECT_DIR$/config.js" />
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="78" column="8" lean-forward="true" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="8" />
+        <state relative-caret-position="68">
+          <caret line="90" column="124" selection-start-line="90" selection-start-column="124" selection-end-line="90" selection-end-column="124" />
           <folding>
             <element signature="e#525#661#0" />
             <element signature="e#709#1586#0" />
             <element signature="e#1633#2453#0" />
-            <element signature="e#2573#3359#0" />
             <element signature="e#3807#3865#0" />
-            <element signature="e#4306#5020#0" />
           </folding>
         </state>
       </provider>
