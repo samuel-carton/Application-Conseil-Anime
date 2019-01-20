@@ -67,34 +67,24 @@ server.get('/bdd/logs', (req,res, next) => {
     next();
 });
 
+server.get('/newlogs', function (req, res, next) {
+    const conn = mongoose.createConnection("mongodb+srv://Loris:Plouf11@cluster0-c0qzl.gcp.mongodb.net/test?retryWrites=true", {useNewUrlParser: true});
+    console.log("connection created");
+    const CherchLogSchema = new Schema({
+        nomAnime: String,
+        genres: [String]
+    });
+    var Log = conn.model('User', CherchLogSchema);
+    Log.find({}, function (err, docs) {
+
+    });
+});
 server.get('/anime/byTitle/:title', function( req, res, next) {
     const promiseAnime = myanimelists.getInfoFromName(req.params.title);
     promiseAnime.then(function (result) {
         res.contentType = 'json';
-        // mClient.connect()
-        //     .then(function (connection) {
-        //         const logs = connection.db("ApplicationAnime").collection("CherchLog");
-        //         // perform actions on the collection object
-        //         // Inserting some documents
-        //         logs.insertMany([
-        //             {nomAnime: result.title, tags: result.genres}
-        //         ]).then( function(scs) {
-        //             console.log("Inserted a document into the collection : " + scs);
-        //             })
-        //         .catch( function (err) {
-        //             console.log("Error while inserting into the database : " + err);
-        //             res.send(err);
-        //         });
-        //         mClient.close()
-        //             .then(success => console.log("Succesfully closing the connection"))
-        //             .catch(err => console.log("Erro while trying to close the connection :" + err));
-        //     })
-        //     .catch( function (err) { console.log(err); res.send(500, err); });
-        // res.send(result);
-        // }).catch(error => console.log(error));
-        res.send(result);
         const conn = mongoose.createConnection("mongodb+srv://Loris:Plouf11@cluster0-c0qzl.gcp.mongodb.net/test?retryWrites=true", {useNewUrlParser: true});
-
+        console.log("connection created");
         const CherchLogSchema = new Schema({
             nomAnime: String,
             genres: [String]
@@ -102,7 +92,12 @@ server.get('/anime/byTitle/:title', function( req, res, next) {
         var Log = conn.model('User', CherchLogSchema);
         var toStore = new Log({nomAnime: result.title, genres: result.tags});
         toStore.save(function (err) {
-            if (err) console.log(err);
+            if (err) {
+                console.log(err)
+            } else {
+                console.log("Sucess");
+            }
+            res.send(result);
             next();
         });
     });
