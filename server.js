@@ -6,6 +6,7 @@ const uri = "mongodb+srv://Loris:Plouf11@cluster0-c0qzl.gcp.mongodb.net/test?ret
 const restify = require('restify');
 const mClient = mc.MongoClient(uri, { useNewUrlParser: true });
 
+
 /**
  * Initialize Server
  */
@@ -103,6 +104,15 @@ server.get('/toAuth', function( req, res) {
         "</form>" +
         "</body>" +
         "</html>");
+    res.end();
+});
+
+server.post('/auth', function (req, res) {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write(req.body.login);
+    require("crypto-js/sha256").then( function (SHA256) {
+        res.write(SHA256(req.body.pass));
+    });
     res.end();
 });
 
