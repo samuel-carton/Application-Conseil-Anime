@@ -22,8 +22,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="122" column="26" selection-start-line="122" selection-start-column="26" selection-end-line="122" selection-end-column="26" />
+            <state relative-caret-position="187">
+              <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -134,7 +134,7 @@
       <workItem from="1547594787512" duration="5479000" />
       <workItem from="1547643233970" duration="1349000" />
       <workItem from="1547983990672" duration="509000" />
-      <workItem from="1547985017392" duration="3134000" />
+      <workItem from="1547985017392" duration="4017000" />
     </task>
     <task id="LOCAL-00001" summary="Back pedal">
       <created>1547482188073</created>
@@ -220,11 +220,25 @@
       <option name="project" value="LOCAL" />
       <updated>1547987993445</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="auth ajoute un user à la base de données">
+      <created>1547988724550</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1547988724550</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Adding the crypto module with npm&#10;Hashing with SHA512">
+      <created>1547989248090</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1547989248090</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48866000" />
+    <option name="totallyTimeSpent" value="49749000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -292,7 +306,9 @@
     <MESSAGE value="This is a victory, the treasure has been found! After all these years, we finally have reached this point. Glory awaits for us lads, and fame too" />
     <MESSAGE value="Res.end ajouté" />
     <MESSAGE value="auth renvoie des données" />
-    <option name="LAST_COMMIT_MESSAGE" value="auth renvoie des données" />
+    <MESSAGE value="auth ajoute un user à la base de données" />
+    <MESSAGE value="Adding the crypto module with npm&#10;Hashing with SHA512" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding the crypto module with npm&#10;Hashing with SHA512" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/node_modules/restify/lib/plugins/authorization.js">
@@ -322,8 +338,8 @@
     <entry file="file://$PROJECT_DIR$/config.js" />
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="122" column="26" selection-start-line="122" selection-start-column="26" selection-end-line="122" selection-end-column="26" />
+        <state relative-caret-position="187">
+          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
         </state>
       </provider>
     </entry>

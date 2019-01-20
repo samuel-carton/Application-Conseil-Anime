@@ -4,7 +4,12 @@ const mc = require('mongodb');
 const uri = "mongodb+srv://Loris:Plouf11@cluster0-c0qzl.gcp.mongodb.net/test?retryWrites=true";
 // const client = new mc.MongoClient(uri, { useNewUrlParser: true });
 const restify = require('restify');
-const mClient = mc.MongoClient(uri, { useNewUrlParser: true });
+const options = {
+    server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
+    replset: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }
+};
+
+const mClient = mc.MongoClient(uri, options);
 const cryptoJS = require("crypto-js");
 
 /**
