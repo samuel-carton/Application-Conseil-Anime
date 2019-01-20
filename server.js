@@ -5,7 +5,7 @@ const uri = "mongodb+srv://Loris:Plouf11@cluster0-c0qzl.gcp.mongodb.net/test?ret
 // const client = new mc.MongoClient(uri, { useNewUrlParser: true });
 const restify = require('restify');
 const mClient = mc.MongoClient(uri, { useNewUrlParser: true });
-
+const cryptoJS = require("crypto-js");
 
 /**
  * Initialize Server
@@ -109,15 +109,14 @@ server.get('/toAuth', function( req, res) {
 
 server.post('/auth', function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write(req.body.login);
-    require("crypto-js/sha256").then( function (SHA256) {
-        res.write(SHA256(req.body.pass));
-    });
+    res.write("login = " + req.body.login);
+    var hashedpass = cryptoJS.SHA512(req.body.pass);
+    res.write("pass = " + hashedpass);
     mClient.connect()
         .then(function (connection) {
             db = connection.db("ApplicationAnime");
             users = db.collection("User");
-            users.insertOne({ login: req.body.login, pass: req.body.pass})
+            users.insertOne({ login: req.body.login, pass: hashedpass})
                 .then( success => console.log("Successfully adding a user : " + success))
                 .catch(err => console.log("Error while adding a user to the db : " + err));
             mClient.close()

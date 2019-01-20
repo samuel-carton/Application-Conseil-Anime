@@ -11,6 +11,7 @@
     "url": "git+https://github.com/scartoning2020/Application-Conseil-Anime.git"
   },
   "dependencies": {
+    "crypto-js": "^3.1.9-1",
     "mongodb": "^3.1.10",
     "myanimelists": "~1.0.1",
     "restify": "~5.0.0"
