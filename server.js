@@ -33,7 +33,7 @@ server.get('/bdd/users', (req,res, next) => {
             });
             // Closing the connection
             mClient.close()
-                .then(succ => console.log("Succesfully closing the connection"))
+                .then(success => console.log("Succesfully closing the connection"))
                 .catch(err => console.log("Error while trying to close the connection :" + err));
         })
         .catch( function (err) {
@@ -56,7 +56,7 @@ server.get('/bdd/logs', (req,res, next) => {
             });
             // Closing the connection
             mClient.close()
-                .then(succ => console.log("Succesfully closing the connection"))
+                .then(success => console.log("Succesfully closing the connection"))
                 .catch(err => console.log("Erro while trying to close the connection :" + err));
         })
         .catch( function (err) { console.log(err); res.send(500, err); });
@@ -82,7 +82,7 @@ server.get('/anime/byTitle/:title', function( req, res, next) {
                     res.send(err);
                 });
                 mClient.close()
-                    .then(succ => console.log("Succesfully closing the connection"))
+                    .then(success => console.log("Succesfully closing the connection"))
                     .catch(err => console.log("Erro while trying to close the connection :" + err));
             })
             .catch( function (err) { console.log(err); res.send(500, err); });
