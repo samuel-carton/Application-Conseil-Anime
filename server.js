@@ -69,7 +69,7 @@ server.get('/bdd/logs', (req,res, next) => {
 
 server.get('/anime/byTitle/:title', function( req, res, next) {
     const promiseAnime = myanimelists.getInfoFromName(req.params.title);
-    promiseAnime.then(function(result){
+    promiseAnime.then(function (result) {
         res.contentType = 'json';
         // mClient.connect()
         //     .then(function (connection) {
@@ -95,18 +95,18 @@ server.get('/anime/byTitle/:title', function( req, res, next) {
         res.send(result);
         const conn = mongoose.createConnection("mongodb+srv://Loris:Plouf11@cluster0-c0qzl.gcp.mongodb.net/test?retryWrites=true", {useNewUrlParser: true});
 
-        const CherchLogSchema = new Schema ({
+        const CherchLogSchema = new Schema({
             nomAnime: String,
             genres: [String]
         });
         var Log = conn.model('User', CherchLogSchema);
         var toStore = new Log({nomAnime: result.title, genres: result.tags});
-        toStore.save( function(err) {
+        toStore.save(function (err) {
             if (err) console.log(err);
             next();
         });
-    }
-);
+    });
+});
 
 server.get('/toAuth', function( req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
