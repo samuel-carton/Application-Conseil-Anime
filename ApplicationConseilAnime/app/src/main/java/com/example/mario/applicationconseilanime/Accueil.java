@@ -1,5 +1,8 @@
 package com.example.mario.applicationconseilanime;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.URL;
 import java.util.List;
 
 
@@ -24,9 +29,10 @@ public class Accueil extends AppCompatActivity implements View.OnClickListener {
     private String title = "Aucun résultat";
     private String nbEpisode = "";
     private String genres = "";
-    private TextView TVtitle;
+    private ImageView IVposter;
     private Button BTsearch;
     private EditText ETsearch;
+    private TextView TVtitle;
     private TextView TVnbep;
     private TextView TVgenres;
 
@@ -41,6 +47,7 @@ public class Accueil extends AppCompatActivity implements View.OnClickListener {
 
         ETsearch = (EditText) findViewById(R.id.edit_text_search);
         BTsearch = (Button) findViewById(R.id.button_search);
+        IVposter =(ImageView) findViewById(R.id.image_view_poster);
         TVtitle = (TextView) findViewById(R.id.text_view_title);
         TVnbep = (TextView) findViewById(R.id.text_view_nbep);
         TVgenres = (TextView) findViewById(R.id.text_view_genres);
@@ -94,6 +101,14 @@ private class GetContacts extends AsyncTask<String, Void, Void> {
                 }
                 genres= genres.substring(0,genres.length()-2);
 
+                try {
+                    URL urlimg = new URL(jsonObj.getString("picture"));
+                    Bitmap bmp = BitmapFactory.decodeStream(urlimg.openConnection().getInputStream());
+                    IVposter.setImageBitmap(bmp);
+                }
+                catch (Exception e){
+
+                }
 
             } catch (final JSONException e) {
                 Log.e(TAG, "Json parsing error: " + e.getMessage());
