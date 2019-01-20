@@ -92,7 +92,7 @@ server.get('/anime/byTitle/:title', function( req, res, next) {
     }
 );
 
-server.get('/toAuth', function( req, res, next) {
+server.get('/toAuth', function( req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write("<html>" +
         "<body>" +
@@ -102,7 +102,8 @@ server.get('/toAuth', function( req, res, next) {
         "<input type='submit' value='Submit'> " +
         "</form>" +
         "</body>" +
-        "</html>")
+        "</html>");
+    res.end();
 });
 
 server.listen(process.env.PORT || 8888, function() {
