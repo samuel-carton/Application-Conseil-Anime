@@ -92,6 +92,19 @@ server.get('/anime/byTitle/:title', function( req, res, next) {
     }
 );
 
+server.get('/toAuth', function( req, res, next) {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write("<html>" +
+        "<body>" +
+        "<form action='https://salty-ocean-70640.herokuapp.com/auth' method='POST'>" +
+        "<input type='text' name='login' placeholder='login'>" +
+        "<input type='password' name='pass' placeholder='password'>" +
+        "<input type='submit' value='Submit'> " +
+        "</form>" +
+        "</body>" +
+        "</html>")
+});
+
 server.listen(process.env.PORT || 8888, function() {
     console.log('%s listening at %s', server.name, server.url);
 });
