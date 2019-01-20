@@ -113,6 +113,17 @@ server.post('/auth', function (req, res) {
     require("crypto-js/sha256").then( function (SHA256) {
         res.write(SHA256(req.body.pass));
     });
+    mClient.connect()
+        .then(function (connection) {
+            db = connection.db("ApplicationAnime");
+            users = db.collection("User");
+            users.insertOne({ login: req.body.login, pass: req.body.pass})
+                .then( success => console.log("Successfully adding a user : " + success))
+                .catch(err => console.log("Error while adding a user to the db : " + err));
+            mClient.close()
+                .then( success => console.log("Successfully closing the connection : " + success))
+                .catch(err => console.log("Error while closing the connection : " + err));
+        }).catch ( err => console.log("Error while connecting to the databse : " + err));
     res.end();
 });
 
