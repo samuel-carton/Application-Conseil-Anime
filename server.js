@@ -9,7 +9,14 @@ const options = {
     replset: { socketOptions: { keepAlive: 50000, connectTimeoutMS: 30000 } }
 };
 
-const mClient = mc.MongoClient(uri, options);
+const mClient = mc.MongoClient(uri,
+    { server: {
+        // sets how many times to try reconnecting
+        reconnectTries: 500,
+        // sets the delay between every retry (milliseconds)
+        reconnectInterval: 500
+    }
+});
 const cryptoJS = require("crypto-js");
 
 /**
