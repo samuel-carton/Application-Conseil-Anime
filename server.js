@@ -28,7 +28,7 @@ server.use(restify.plugins.bodyParser());
 server.get('/', function(req, res, err) {
     res.writeHead(200, {'Content-Type': 'text/html'});
     console.log("We got a connection !");
-    res.write("Hi");
+    res.write("Hello World !");
     res.end();
 });
 
@@ -126,16 +126,19 @@ server.post('/auth', function (req, res) {
     res.write("pass = " + hashedpass);
     mClient.connect()
         .then(function (connection) {
-            db = connection.db("ApplicationAnime");
-            users = db.collection("User");
-            users.insertOne({ login: req.body.login, pass: hashedpass})
+            const db = connection.db("ApplicationAnime");
+            const users = db.collection("User");
+            users.insertMany([{login: req.body.login, pass: hashedpass}])
                 .then( success => console.log("Successfully adding a user : " + success))
                 .catch(err => console.log("Error while adding a user to the db : " + err));
             mClient.close()
                 .then( success => console.log("Successfully closing the connection : " + success))
                 .catch(err => console.log("Error while closing the connection : " + err));
-        }).catch ( err => console.log("Error while connecting to the databse : " + err));
-    res.end();
+            res.end();
+        }).catch ( function (err) {
+            console.log("Error while connecting to the databse : " + err)
+            res.end();
+        });
 });
 
 server.listen(process.env.PORT || 8888, function() {
