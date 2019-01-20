@@ -68,15 +68,20 @@ server.get('/bdd/logs', (req,res, next) => {
 });
 
 server.get('/newlogs', function (req, res, next) {
-    const conn = mongoose.createConnection("mongodb+srv://Loris:Plouf11@cluster0-c0qzl.gcp.mongodb.net/test?retryWrites=true", {useNewUrlParser: true});
+    const conn = mongoose.createConnection("mongodb+srv://Loris:Plouf11@cluster0-c0qzl.gcp.mongodb.net/ApplcationAnime?retryWrites=true", {useNewUrlParser: true});
     console.log("connection created");
     const CherchLogSchema = new Schema({
         nomAnime: String,
         genres: [String]
     });
-    var Log = conn.model('User', CherchLogSchema);
+    var Log = conn.model('CherchLog', CherchLogSchema);
     Log.find({}, function (err, docs) {
-
+        if (err) {
+            console.log(err);
+            res.send(500, "ERROR" + err);
+        } else {
+            res.send(200, docs);
+        }
     });
 });
 server.get('/anime/byTitle/:title', function( req, res, next) {
@@ -89,13 +94,13 @@ server.get('/anime/byTitle/:title', function( req, res, next) {
             nomAnime: String,
             genres: [String]
         });
-        var Log = conn.model('User', CherchLogSchema);
+        var Log = conn.model('CherchLog', CherchLogSchema);
         var toStore = new Log({nomAnime: result.title, genres: result.tags});
         toStore.save(function (err) {
             if (err) {
                 console.log(err)
             } else {
-                console.log("Sucess");
+                console.log("Success databasing");
             }
             res.send(result);
             next();
@@ -122,23 +127,7 @@ server.post('/auth', function (req, res) {
     res.write("login = " + req.body.login);
     var hashedpass = cryptoJS.SHA512(req.body.pass);
     res.write("pass = " + hashedpass);
-    // mClient.connect()
-    //     .then(function (connection) {
-    //         const db = connection.db("ApplicationAnime");
-    //         const users = db.collection("User");
-    //         users.insertMany([{login: req.body.login, pass: hashedpass}])
-    //             .then( success => console.log("Successfully adding a user : " + success))
-    //             .catch(err => console.log("Error while adding a user to the db : " + err));
-    //         mClient.close()
-    //             .then( success => console.log("Successfully closing the connection : " + success))
-    //             .catch(err => console.log("Error while closing the connection : " + err));
-    //         res.end();
-    //     }).catch ( function (err) {
-    //         console.log("Error while connecting to the databse : " + err)
-    //         res.end();
-    //     });
-    // const conn = mongoose.createConnection("mongodb+srv://Loris:Plouf11@cluster0-c0qzl.gcp.mongodb.net/test?retryWrites=true");
-    // const mdl = mongoose.model()
+
 });
 
 server.listen(process.env.PORT || 8888, function() {
