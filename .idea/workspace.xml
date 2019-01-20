@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="743f269c-ae02-4442-9820-37c15df93f51" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -21,22 +22,26 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="190" column="27" lean-forward="true" selection-start-line="190" selection-start-column="27" selection-end-line="190" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+            <state relative-caret-position="221">
+              <caret line="81" column="16" lean-forward="true" selection-start-line="81" selection-start-column="16" selection-end-line="81" selection-end-column="16" />
+              <folding>
+                <element signature="e#525#661#0" />
+                <element signature="e#709#1586#0" />
+                <element signature="e#1633#2453#0" />
+                <element signature="e#3807#3865#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -46,15 +51,15 @@
       <list>
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/config.js" />
         <option value="$PROJECT_DIR$/server.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="200" />
-    <option name="y" value="-30" />
-    <option name="width" value="980" />
-    <option name="height" value="1040" />
+    <option name="x" value="-8" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -64,6 +69,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -75,7 +81,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -85,6 +90,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -127,20 +133,188 @@
       <workItem from="1543220890171" duration="6100000" />
       <workItem from="1543327324389" duration="5483000" />
       <workItem from="1543408775039" duration="3703000" />
-      <workItem from="1547021272715" duration="8616000" />
+      <workItem from="1547021272715" duration="10009000" />
+      <workItem from="1547146653571" duration="595000" />
+      <workItem from="1547457485020" duration="9394000" />
+      <workItem from="1547594787512" duration="5479000" />
+      <workItem from="1547643233970" duration="1349000" />
+      <workItem from="1547983990672" duration="509000" />
+      <workItem from="1547985017392" duration="16830000" />
     </task>
+    <task id="LOCAL-00001" summary="Back pedal">
+      <created>1547482188073</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1547482188073</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Back pedal again">
+      <created>1547482372881</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1547482372881</updated>
+    </task>
+    <task id="LOCAL-00003" summary="            Back pedal again">
+      <created>1547482951043</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1547482951043</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Slow going upwards ?">
+      <created>1547483463393</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1547483463393</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Are you kidding me ?">
+      <created>1547484110110</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1547484110110</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Promises and callbacks and broken dreams">
+      <created>1547484387775</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1547484387775</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Boomerangs">
+      <created>1547484531624</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1547484531624</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Captain, I see an island">
+      <created>1547484911854</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1547484911854</updated>
+    </task>
+    <task id="LOCAL-00009" summary="The island was a lie ! But the ship hasn't sunk yet !">
+      <created>1547485174568</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1547485174568</updated>
+    </task>
+    <task id="LOCAL-00010" summary="This is a victory, the treasure has been found! After all these years, we finally have reached this point. Glory awaits for us lads, and fame too">
+      <created>1547485366571</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1547485366571</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Res.end ajouté">
+      <created>1547987061031</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1547987061032</updated>
+    </task>
+    <task id="LOCAL-00012" summary="auth renvoie des données">
+      <created>1547987993445</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1547987993445</updated>
+    </task>
+    <task id="LOCAL-00013" summary="auth ajoute un user à la base de données">
+      <created>1547988724550</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1547988724550</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Adding the crypto module with npm&#10;Hashing with SHA512">
+      <created>1547989248090</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1547989248090</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Trying to keep the connection alive">
+      <created>1547989617713</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1547989617713</updated>
+    </task>
+    <task id="LOCAL-00016" summary="trying">
+      <created>1547990181893</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1547990181893</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Still trying to keep th connecc alive">
+      <created>1547990345935</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1547990345935</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Stayin' alive">
+      <created>1547993960834</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1547993960834</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Mongoose addition">
+      <created>1547999184330</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1547999184330</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Mongoose addition">
+      <created>1547999325748</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1547999325748</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Fixing typos">
+      <created>1548000835074</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1548000835074</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Changement de base de données">
+      <created>1548001535286</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1548001535286</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Changement de collection">
+      <created>1548001735995</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1548001735995</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27013000" />
+    <option name="totallyTimeSpent" value="62562000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4978903" visible="true" weight="0.24983476" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4957806" visible="true" weight="0.15730338" />
+      <window_info id="Structure" order="1" sideWeight="0.5042194" side_tool="true" weight="0.15730338" />
+      <window_info id="npm" order="2" sideWeight="0.5042194" side_tool="true" weight="0.15730338" />
       <window_info id="Favorites" order="3" sideWeight="0.5021097" side_tool="true" weight="0.24983476" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -150,9 +324,9 @@
       <window_info anchor="bottom" id="Run" order="5" weight="0.3286119" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3286119" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.33144477" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -160,6 +334,57 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Back pedal" />
+    <MESSAGE value="Back pedal again" />
+    <MESSAGE value="            Back pedal again" />
+    <MESSAGE value="Slow going upwards ?" />
+    <MESSAGE value="Are you kidding me ?" />
+    <MESSAGE value="Promises and callbacks and broken dreams" />
+    <MESSAGE value="Boomerangs" />
+    <MESSAGE value="Captain, I see an island" />
+    <MESSAGE value="The island was a lie ! But the ship hasn't sunk yet !" />
+    <MESSAGE value="This is a victory, the treasure has been found! After all these years, we finally have reached this point. Glory awaits for us lads, and fame too" />
+    <MESSAGE value="Res.end ajouté" />
+    <MESSAGE value="auth renvoie des données" />
+    <MESSAGE value="auth ajoute un user à la base de données" />
+    <MESSAGE value="Adding the crypto module with npm&#10;Hashing with SHA512" />
+    <MESSAGE value="Trying to keep the connection alive" />
+    <MESSAGE value="trying" />
+    <MESSAGE value="Still trying to keep th connecc alive" />
+    <MESSAGE value="Stayin' alive" />
+    <MESSAGE value="Mongoose addition" />
+    <MESSAGE value="Fixing typos" />
+    <MESSAGE value="Changement de base de données" />
+    <MESSAGE value="Changement de collection" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changement de collection" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/node_modules/restify/lib/plugins/authorization.js">
@@ -179,17 +404,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="190" column="27" lean-forward="true" selection-start-line="190" selection-start-column="27" selection-end-line="190" selection-end-column="27" />
+        <state relative-caret-position="255">
+          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/config.js" />
+    <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+        <state relative-caret-position="221">
+          <caret line="81" column="16" lean-forward="true" selection-start-line="81" selection-start-column="16" selection-end-line="81" selection-end-column="16" />
+          <folding>
+            <element signature="e#525#661#0" />
+            <element signature="e#709#1586#0" />
+            <element signature="e#1633#2453#0" />
+            <element signature="e#3807#3865#0" />
+          </folding>
         </state>
       </provider>
     </entry>
