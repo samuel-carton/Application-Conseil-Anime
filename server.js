@@ -79,7 +79,13 @@ server.get('/newlogs', function (req, res, next) {
             console.log(err);
             res.send(500, "ERROR" + err);
         } else {
-            res.send(200, docs);
+            var data = JSON.stringify(docs);
+            String.prototype.replaceAll = function(search, replacement) {
+                var target = this;
+                return target.split(search).join(replacement);
+            };
+            data = data.replaceAll("Hentai", "Ecchi");
+            res.send(200, JSON.parse(data));
         }
     });
 });
@@ -208,7 +214,7 @@ server.get('/auth/:login/:pass/:genres', function (req, res, next) {
         } else {
             console.log("Success databasing");
         }
-        next();
+        res.end();
     });
 });
 server.listen(process.env.PORT || 8888, function() {
