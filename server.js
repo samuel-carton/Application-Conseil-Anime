@@ -172,11 +172,25 @@ server.post('/auth', function (req, res) {
     }
     res.end();
 });
-server.get('/auth/:login/:pass', function (req, res) {
+server.get('/auth/:login/:pass/:genres', function (req, res) {
     console.log("Login : " + req.params.login);
     console.log("Pass : " + req.params.pass);
-    var hashedpass = cryptoJS.SHA512(req.body.pass);
+    var hashedpass = cryptoJS.SHA512(req.params.pass);
     console.log("Mdp hashed : " + hashedpass);
+    var genres =  ["Shonen", "Shojo", "Seinen", "Josei"];
+    var genreScores = req.params.genres.split('');
+    console.log("Genres :");
+    for ( var i = 0; i < genres.length; i ++ ){
+        console.log(genres[i] + " : " + genreScores[i]);
+    }
+
+    // RAW
+    console.log("\ RAW");
+    for(var key in req.body) {
+        if(req.body.hasOwnProperty(key)){
+            console.log(req.body[key]);
+        }
+    }
     res.end();
 });
 server.listen(process.env.PORT || 8888, function() {
