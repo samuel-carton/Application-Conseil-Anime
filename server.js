@@ -22,7 +22,6 @@ server.get('/', function(req, res, err) {
     res.write("Hello World !");
     res.end();
 });
-
 server.get('/bdd/users', (req,res, next) => {
     mClient.connect()
         .then(function (connection) {
@@ -46,27 +45,27 @@ server.get('/bdd/users', (req,res, next) => {
         });
     next();
 });
-
-server.get('/bdd/logs', (req,res, next) => {
-    mClient.connect()
-        .then(function (connection) {
-            const collection = connection.db("ApplicationAnime").collection("CherchLogs");
-            console.log(collection);
-            // Finding documents
-            collection.find({}).toArray( function( err, data ) {
-                if (err) res.send(500, "Error while trying to find documents in mongodb :" + err);
-                console.log(data);
-                res.send(200, data);
-            });
-            // Closing the connection
-            mClient.close()
-                .then(success => console.log("Succesfully closing the connection"))
-                .catch(err => console.log("Erro while trying to close the connection :" + err));
-        })
-        .catch( function (err) { console.log(err); res.send(500, err); });
-    next();
+server.get('/newusers', function (req, res, next) {
+    const conn = mongoose.createConnection("mongodb+srv://Loris:Plouf11@cluster0-c0qzl.gcp.mongodb.net/ApplicationAnime?retryWrites=true", {useNewUrlParser: true});
+    console.log("connection created");
+    const UserSchema = new Schema({
+        mail: String,
+        pass: String,
+        genres: {
+            type: Map,
+            of: Number
+        }
+    }, { collection: 'Users' });
+    var u = conn.model('User', UserSchema);
+    u.find({}, function (err, docs) {
+        if (err) {
+            console.log(err);
+            res.send(500, "ERROR" + err);
+        } else {
+            res.send(200, docs);
+        }
+    });
 });
-
 server.get('/newlogs', function (req, res, next) {
     const conn = mongoose.createConnection("mongodb+srv://Loris:Plouf11@cluster0-c0qzl.gcp.mongodb.net/ApplicationAnime?retryWrites=true", {useNewUrlParser: true});
     console.log("connection created");
@@ -95,7 +94,8 @@ server.get('/anime/byTitle/:title', function( req, res, next) {
             genres: [String]
         }, { collection: 'CherchLogs' });
         var Log = conn.model('CherchLog', CherchLogSchema);
-        var toStore = new Log({nomAnime: result.title, genres: result.tags});
+        console.log(result.tags);
+        var toStore = new Log({nomAnime: result.title, genres: result.genres});
         toStore.save(function (err) {
             if (err) {
                 console.log(err)
@@ -107,27 +107,61 @@ server.get('/anime/byTitle/:title', function( req, res, next) {
         });
     });
 });
-
 server.get('/toAuth', function( req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write("<html>" +
         "<body>" +
-        "<form action='https://salty-ocean-70640.herokuapp.com/auth' method='POST'>" +
+        "<form action='auth' method='POST'>" +
         "<input type='text' name='login' placeholder='login'>" +
         "<input type='password' name='pass' placeholder='password'>" +
-        "<input type='submit' value='Submit'> " +
+        "<label> Shounen </label><input type='checkbox' name='genres[shounen]'>" +
+        "<label> Seinen </label><input type='checkbox' name='genres[seinen]'>" +
+        "<input type='submit' value='Submit'>" +
         "</form>" +
         "</body>" +
         "</html>");
     res.end();
 });
+server.get('/newToAuth', function ( req, response) {
+    console.log('Conected on the new auth');
+    var request = require('request');
 
+    var requestData = JSON.parse('{"login": "xxx", "pass": "yyy"}');
+
+    // Configure the request
+    var options = {
+        host: 'localhost',
+        port: '8888',
+        path: '/auth',
+        method: 'POST',
+        json: requestData
+    };
+
+    // Start the request
+    console.log("Start");
+    var x = http.request(options,function(res){
+        console.log("Connected");
+        res.on('data',function(data){
+            response.write(data);
+            response.end();
+        });
+    });
+
+    x.end();
+});
 server.post('/auth', function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write("login = " + req.body.login);
-    var hashedpass = cryptoJS.SHA512(req.body.pass);
-    res.write("pass = " + hashedpass);
-
+    console.log('Auth processing ... Hold on');
+    res.write(req);
+    // res.writeHead(200, {'Content-Type': 'text/html'});
+    // res.write("login = " + req.body.login + "</br>");
+    // var hashedpass = cryptoJS.SHA512(req.body.pass);
+    // res.write("pass = " + hashedpass + "</br>");
+    // for ( var i in req.body.genres ){
+    //
+    // }
+    // res.write("genres = " + req.body.genres.shounen);
+    // console.log(req.body.genres);
+    res.end();
 });
 
 server.listen(process.env.PORT || 8888, function() {
