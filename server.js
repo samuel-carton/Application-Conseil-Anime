@@ -151,16 +151,25 @@ server.get('/newToAuth', function ( req, response) {
 });
 server.post('/auth', function (req, res) {
     console.log('Auth processing ... Hold on');
-    res.write(req);
-    // res.writeHead(200, {'Content-Type': 'text/html'});
-    // res.write("login = " + req.body.login + "</br>");
-    // var hashedpass = cryptoJS.SHA512(req.body.pass);
-    // res.write("pass = " + hashedpass + "</br>");
-    // for ( var i in req.body.genres ){
-    //
-    // }
-    // res.write("genres = " + req.body.genres.shounen);
-    // console.log(req.body.genres);
+    console.log("Login sent : " + req.body.login);
+    console.log("Mdp sent : " + req.body.pass);
+    var hashedpass = cryptoJS.SHA512(req.body.pass);
+    console.log("Mdp hashed : " + hashedpass);
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write("login = " + req.body.login + "</br>");
+    res.write("Clear pass = " + req.body.pass + "</br>");
+    res.write("Hashed pass = " + hashedpass + "</br>");
+    console.log("Genres :");
+    for ( var genre in req.body.genres){
+        console.log(genre + " : " + req.body.genres[genre]);
+        res.write(genre + " " + req.body.genres[genre] + "</br>");
+    }
+    console.log("\ RAW");
+    for(var key in req.body) {
+        if(req.body.hasOwnProperty(key)){
+            console.log(req.body[key]);
+        }
+    }
     res.end();
 });
 
