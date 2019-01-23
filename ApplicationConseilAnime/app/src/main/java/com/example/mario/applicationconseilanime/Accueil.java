@@ -69,7 +69,6 @@ public class Accueil extends AppCompatActivity implements View.OnClickListener {
         if (!TextUtils.isEmpty(search)){
             new GetContacts().execute(search);
         }
-
     }
 
 
