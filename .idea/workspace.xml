@@ -22,8 +22,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="332">
+              <caret line="179" column="14" selection-start-line="179" selection-start-column="14" selection-end-line="179" selection-end-column="14" />
               <folding>
                 <element signature="e#566#713#0" />
                 <element signature="e#761#1639#0" />
@@ -32,7 +32,6 @@
                 <element signature="e#3036#3934#0" />
                 <element signature="e#3979#4552#0" />
                 <element signature="e#4607#5210#0" />
-                <element signature="e#5254#5714#0" />
               </folding>
             </state>
           </provider>
@@ -146,7 +145,7 @@
       <workItem from="1547983990672" duration="509000" />
       <workItem from="1547985017392" duration="19431000" />
       <workItem from="1548085939961" duration="6009000" />
-      <workItem from="1548252702849" duration="493000" />
+      <workItem from="1548252702849" duration="4589000" />
     </task>
     <task id="LOCAL-00001" summary="Back pedal">
       <created>1547482188073</created>
@@ -316,11 +315,25 @@
       <option name="project" value="LOCAL" />
       <updated>1548005126779</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Genres come back">
+      <created>1548253351601</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1548253351601</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Auth beginnings">
+      <created>1548255793114</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1548255793114</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71785000" />
+    <option name="totallyTimeSpent" value="75761000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -413,7 +426,9 @@
     <MESSAGE value="Changement de base de données" />
     <MESSAGE value="Changement de collection" />
     <MESSAGE value="Changement tout court" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changement tout court" />
+    <MESSAGE value="Genres come back" />
+    <MESSAGE value="Auth beginnings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Auth beginnings" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/node_modules/restify/lib/plugins/authorization.js">
@@ -450,8 +465,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="332">
+          <caret line="179" column="14" selection-start-line="179" selection-start-column="14" selection-end-line="179" selection-end-column="14" />
           <folding>
             <element signature="e#566#713#0" />
             <element signature="e#761#1639#0" />
@@ -460,7 +475,6 @@
             <element signature="e#3036#3934#0" />
             <element signature="e#3979#4552#0" />
             <element signature="e#4607#5210#0" />
-            <element signature="e#5254#5714#0" />
           </folding>
         </state>
       </provider>

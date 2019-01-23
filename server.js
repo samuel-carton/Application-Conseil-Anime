@@ -172,7 +172,13 @@ server.post('/auth', function (req, res) {
     }
     res.end();
 });
-
+server.get('/auth/:login/:pass', function (req, res) {
+    console.log("Login : " + req.params.login);
+    console.log("Pass : " + req.params.pass);
+    var hashedpass = cryptoJS.SHA512(req.body.pass);
+    console.log("Mdp hashed : " + hashedpass);
+    res.end();
+});
 server.listen(process.env.PORT || 8888, function() {
     console.log('%s listening at %s', server.name, server.url);
 });
