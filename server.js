@@ -172,10 +172,12 @@ server.post('/auth', function (req, res) {
     }
     res.end();
 });
-server.get('/auth/:login/:pass/:genres', function (req, res) {
-    console.log("Login : " + req.params.login);
-    console.log("Pass : " + req.params.pass);
-    var hashedpass = cryptoJS.SHA512(req.params.pass);
+server.get('/auth/:login/:pass/:genres', function (req, res, next) {
+    var login = req.params.login;
+    console.log("Login : " + login);
+    var passwd = req.params.pass
+    console.log("Pass : " + passwd);
+    var hashedpass = cryptoJS.SHA512(passwd);
     console.log("Mdp hashed : " + hashedpass);
     var genres =  ["Shonen", "Shojo", "Seinen", "Josei"];
     var genreScores = req.params.genres.split('');
@@ -183,15 +185,31 @@ server.get('/auth/:login/:pass/:genres', function (req, res) {
     for ( var i = 0; i < genres.length; i ++ ){
         console.log(genres[i] + " : " + genreScores[i]);
     }
-
-    // RAW
-    console.log("\ RAW");
-    for(var key in req.body) {
-        if(req.body.hasOwnProperty(key)){
-            console.log(req.body[key]);
-        }
+    var mapGenres = {};
+    for ( var i = 0; i < genres.length; i ++ ){
+        mapGenres[genres[i]] = genreScores[i];
     }
-    res.end();
+
+    const conn = mongoose.createConnection("mongodb+srv://Loris:Plouf11@cluster0-c0qzl.gcp.mongodb.net/ApplicationAnime?retryWrites=true", {useNewUrlParser: true});
+    console.log("connection created");
+    const UserSchema = new Schema({
+        mail: String,
+        pass: String,
+        genres: {
+            type: Map,
+            of: String
+        }
+    }, { collection: 'Users' });
+    var User = conn.model('User', UserSchema);
+    var toStore = new User({mail: login, pass: hashedpass,genres: mapGenres});
+    toStore.save(function (err) {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log("Success databasing");
+        }
+        next();
+    });
 });
 server.listen(process.env.PORT || 8888, function() {
     console.log('%s listening at %s', server.name, server.url);
